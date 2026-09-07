@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="system" method="upgrade">
+    <name>plg_system_ymmudesocial</name>
+    <author>ymmude.com</author>
+    <creationDate>September 2026</creationDate>
+    <copyright>Copyright (C) 2026 ymmude.com. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later</license>
+    <version>1.0.0</version>
+    <description>PLG_SYSTEM_YMMUDESOCIAL_XML_DESCRIPTION</description>
+
+    <files>
+        <filename plugin="ymmudesocial">ymmudesocial.php</filename>
+        <filename>services.php</filename>
+        <folder>language</folder>
+        <folder>tmpl</folder>
+    </files>
+
+    <languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.plg_system_ymmudesocial.ini</language>
+        <language tag="en-GB">en-GB/en-GB.plg_system_ymmudesocial.sys.ini</language>
+    </languages>
+
+    <config>
+        <fields name="params">
+
+            <!-- ===================== GOOGLE ===================== -->
+            <fieldset name="google" label="PLG_SYSTEM_YMMUDESOCIAL_TAB_GOOGLE">
+                <field name="google_note" type="note" class="alert alert-info"
+                    label="PLG_SYSTEM_YMMUDESOCIAL_CALLBACK_LABEL"
+                    description="PLG_SYSTEM_YMMUDESOCIAL_GOOGLE_NOTE" />
+                <field name="google_enabled" type="radio" layout="joomla.form.field.radio.switcher" default="0"
+                    label="PLG_SYSTEM_YMMUDESOCIAL_ENABLE_LABEL">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="google_client_id" type="text" size="80" filter="trim"
+                    label="PLG_SYSTEM_YMMUDESOCIAL_GOOGLE_CLIENT_ID"
+                    description="PLG_SYSTEM_YMMUDESOCIAL_GOOGLE_CLIENT_ID_DESC"
+                    showon="google_enabled:1" />
+                <field name="google_client_secret" type="password" size="80" filter="raw" autocomplete="off"
+                    label="PLG_SYSTEM_YMMUDESOCIAL_GOOGLE_CLIENT_SECRET"
+                    description="PLG_SYSTEM_YMMUDESOCIAL_GOOGLE_CLIENT_SECRET_DESC"
+                    showon="google_enabled:1" />
+            </fieldset>
+
+            <!-- ===================== APPLE ===================== -->
+            <fieldset name="apple" label="PLG_SYSTEM_YMMUDESOCIAL_TAB_APPLE">
+                <field name="apple_note" type="note" class="alert alert-info"
+                    label="PLG_SYSTEM_YMMUDESOCIAL_CALLBACK_LABEL"
+                    description="PLG_SYSTEM_YMMUDESOCIAL_APPLE_NOTE" />
+                <field name="apple_enabled" type="radio" layout="joomla.form.field.radio.switcher" default="0"
+                    label="PLG_SYSTEM_YMMUDESOCIAL_ENABLE_LABEL">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="apple_client_id" type="text" size="80" filter="trim"
+                    label="PLG_SYSTEM_YMMUDESOCIAL_APPLE_CLIENT_ID"
+                    description="PLG_SYSTEM_YMMUDESOCIAL_APPLE_CLIENT_ID_DESC"
+                    showon="apple_enabled:1" />
+                <field name="apple_team_id" type="text" size="20" filter="trim"
+                    label="PLG_SYSTEM_YMMUDESOCIAL_APPLE_TEAM_ID"
+                    description="PLG_SYSTEM_YMMUDESOCIAL_APPLE_TEAM_ID_DESC"
+                    showon="apple_enabled:1" />
+                <field name="apple_key_id" type="text" size="20" filter="trim"
+                    label="PLG_SYSTEM_YMMUDESOCIAL_APPLE_KEY_ID"
+                    description="PLG_SYSTEM_YMMUDESOCIAL_APPLE_KEY_ID_DESC"
+                    showon="apple_enabled:1" />
+                <field name="apple_private_key" type="textarea" rows="8" cols="80" filter="raw"
+                    label="PLG_SYSTEM_YMMUDESOCIAL_APPLE_PRIVATE_KEY"
+                    description="PLG_SYSTEM_YMMUDESOCIAL_APPLE_PRIVATE_KEY_DESC"
+                    showon="apple_enabled:1" />
+            </fieldset>
+
+            <!-- ===================== FACEBOOK ===================== -->
+            <fieldset name="facebook" label="PLG_SYSTEM_YMMUDESOCIAL_TAB_FACEBOOK">
+                <field name="facebook_note" type="note" class="alert alert-info"
+                    label="PLG_SYSTEM_YMMUDESOCIAL_CALLBACK_LABEL"
+                    description="PLG_SYSTEM_YMMUDESOCIAL_FACEBOOK_NOTE" />
+                <field name="facebook_enabled" type="radio" layout="joomla.form.field.radio.switcher" default="0"
+                    label="PLG_SYSTEM_YMMUDESOCIAL_ENABLE_LABEL">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="facebook_app_id" type="text" size="40" filter="trim"
+                    label="PLG_SYSTEM_YMMUDESOCIAL_FACEBOOK_APP_ID"
+                    description="PLG_SYSTEM_YMMUDESOCIAL_FACEBOOK_APP_ID_DESC"
+                    showon="facebook_enabled:1" />
+                <field name="facebook_app_secret" type="password" size="80" filter="raw" autocomplete="off"
+                    label="PLG_SYSTEM_YMMUDESOCIAL_FACEBOOK_APP_SECRET"
+                    description="PLG_SYSTEM_YMMUDESOCIAL_FACEBOOK_APP_SECRET_DESC"
+                    showon="facebook_enabled:1" />
+            </fieldset>
+
+            <!-- ===================== GITHUB ===================== -->
+            <fieldset name="github" label="PLG_SYSTEM_YMMUDESOCIAL_TAB_GITHUB">
+                <field name="github_note" type="note" class="alert alert-info"
+                    label="PLG_SYSTEM_YMMUDESOCIAL_CALLBACK_LABEL"
+                    description="PLG_SYSTEM_YMMUDESOCIAL_GITHUB_NOTE" />
+                <field name="github_enabled" type="radio" layout="joomla.form.field.radio.switcher" default="0"
+                    label="PLG_SYSTEM_YMMUDESOCIAL_ENABLE_LABEL">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="github_client_id" type="text" size="40" filter="trim"
+                    label="PLG_SYSTEM_YMMUDESOCIAL_GITHUB_CLIENT_ID"
+                    description="PLG_SYSTEM_YMMUDESOCIAL_GITHUB_CLIENT_ID_DESC"
+                    showon="github_enabled:1" />
+                <field name="github_client_secret" type="password" size="80" filter="raw" autocomplete="off"
+                    label="PLG_SYSTEM_YMMUDESOCIAL_GITHUB_CLIENT_SECRET"
+                    description="PLG_SYSTEM_YMMUDESOCIAL_GITHUB_CLIENT_SECRET_DESC"
+                    showon="github_enabled:1" />
+            </fieldset>
+
+            <!-- ===================== GENERAL ===================== -->
+            <fieldset name="general" label="PLG_SYSTEM_YMMUDESOCIAL_TAB_GENERAL">
+                <field name="allow_user_creation" type="radio" layout="joomla.form.field.radio.switcher" default="1"
+                    label="PLG_SYSTEM_YMMUDESOCIAL_ALLOW_CREATION"
+                    description="PLG_SYSTEM_YMMUDESOCIAL_ALLOW_CREATION_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="default_group" type="usergrouplist" default="2"
+                    label="PLG_SYSTEM_YMMUDESOCIAL_DEFAULT_GROUP"
+                    description="PLG_SYSTEM_YMMUDESOCIAL_DEFAULT_GROUP_DESC" />
+                <field name="auto_activate" type="radio" layout="joomla.form.field.radio.switcher" default="1"
+                    label="PLG_SYSTEM_YMMUDESOCIAL_AUTO_ACTIVATE"
+                    description="PLG_SYSTEM_YMMUDESOCIAL_AUTO_ACTIVATE_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="link_unverified" type="radio" layout="joomla.form.field.radio.switcher" default="0"
+                    label="PLG_SYSTEM_YMMUDESOCIAL_LINK_UNVERIFIED"
+                    description="PLG_SYSTEM_YMMUDESOCIAL_LINK_UNVERIFIED_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="remember_me" type="radio" layout="joomla.form.field.radio.switcher" default="1"
+                    label="PLG_SYSTEM_YMMUDESOCIAL_REMEMBER"
+                    description="PLG_SYSTEM_YMMUDESOCIAL_REMEMBER_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="redirect_after_login" type="text" size="60" filter="trim" default=""
+                    label="PLG_SYSTEM_YMMUDESOCIAL_REDIRECT"
+                    description="PLG_SYSTEM_YMMUDESOCIAL_REDIRECT_DESC" />
+            </fieldset>
+
+            <!-- ===================== DISPLAY ===================== -->
+            <fieldset name="display" label="PLG_SYSTEM_YMMUDESOCIAL_TAB_DISPLAY">
+                <field name="heading_text" type="text" size="40" default="or continue with"
+                    label="PLG_SYSTEM_YMMUDESOCIAL_HEADING"
+                    description="PLG_SYSTEM_YMMUDESOCIAL_HEADING_DESC" />
+                <field name="button_text" type="text" size="40" default="Continue with %s"
+                    label="PLG_SYSTEM_YMMUDESOCIAL_BUTTON_TEXT"
+                    description="PLG_SYSTEM_YMMUDESOCIAL_BUTTON_TEXT_DESC" />
+                <field name="module_target" type="text" size="60" default=".mod-login__submit"
+                    label="PLG_SYSTEM_YMMUDESOCIAL_MODULE_TARGET"
+                    description="PLG_SYSTEM_YMMUDESOCIAL_MODULE_TARGET_DESC" />
+                <field name="component_target" type="text" size="60" default=".com-users-login__submit"
+                    label="PLG_SYSTEM_YMMUDESOCIAL_COMPONENT_TARGET"
+                    description="PLG_SYSTEM_YMMUDESOCIAL_COMPONENT_TARGET_DESC" />
+                <field name="registration_target" type="text" size="60" default=".com-users-registration__submit"
+                    label="PLG_SYSTEM_YMMUDESOCIAL_REGISTRATION_TARGET"
+                    description="PLG_SYSTEM_YMMUDESOCIAL_REGISTRATION_TARGET_DESC" />
+                <field name="shortcode_note" type="note" class="alert alert-secondary"
+                    label="PLG_SYSTEM_YMMUDESOCIAL_SHORTCODE"
+                    description="PLG_SYSTEM_YMMUDESOCIAL_SHORTCODE_DESC" />
+            </fieldset>
+
+        </fields>
+    </config>
+</extension>
